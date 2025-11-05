@@ -1,0 +1,29 @@
+<section id="services" class="py-20 sm:py-32 bg-background" style="background: linear-gradient(120deg, #0A0A0A 20%, #1c070c 120%);">
+  <div class="container mx-auto px-6">
+    <div class="text-center mb-16">
+      <h2 class="font-display text-3xl sm:text-4xl font-bold text-white">
+        Veri Odaklı <span class="text-primary">Çözümlerimiz</span>
+      </h2>
+      <p class="mt-4 text-lg text-text-secondary max-w-2xl mx-auto" style="line-height: 1.7; opacity: 0.85;">
+        İşletmenizin dijital dünyada bir adım öne çıkmasını sağlayan yenilikçi hizmetlerimiz.
+      </p>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+      @for (service of services(); track service.title; let i = $index) {
+        <div 
+          class="glassmorphism rounded-xl p-8 text-center group transition-all duration-300 hover:-translate-y-2 hover:shadow-neon-pink-soft animate-fade-in-up"
+          [style.animation-delay]="i * 150 + 'ms'"
+          >
+          <div class="inline-block p-4 bg-accent rounded-full text-primary transition-colors duration-300 group-hover:bg-primary group-hover:text-white group-hover:shadow-neon-pink-soft" [innerHTML]="service.icon">
+          </div>
+          <h3 class="mt-6 font-display text-xl font-bold text-white">
+            {{ service.title }}
+          </h3>
+          <p class="mt-3 text-text-secondary" style="opacity: 0.85;">
+            {{ service.description }}
+          </p>
+        </div>
+      }
+    </div>
+  </div>
+</section>

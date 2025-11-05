@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>C-Level Agency</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Poppins:wght@500&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background-color: #0A0A0A;
+      color: #FFFFFF;
+      font-family: 'Inter', sans-serif;
+      /* Subtle noise texture */
+      background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIiB2aWV3Qm94PSIwIDAgMTAwIDEwMCI+PGZpbHRlciBpZD0ibm9pc2UiPjxmZVR1cmJ1bGVuY2UgdHlwZT0iZnJhY3RhbE5vaXNlIiBiYXNlRnJlcXVlbmN5PSIwLjciIG51bU9jdGF2ZXM9IjEwIiBzdGl0Y2hUaWxlcz0ic3RpdGNoIj48L2ZlVHVyYnVsZW5jZT48ZmVDb2xvck1hdHJpeCB0eXBlPSJzYXR1cmF0ZSIgdmFsdWVzPSIwIj48L2ZlQ29sb3JNYXRyaXg+PC9maWx0ZXI+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsdGVyPSJ1cmwoI25vaXNlKSIgb3BhY2l0eT0iMC4wMyI+PC9yZWN0Pjwvc3ZnPg==');
+    }
+    .holographic-border {
+      position: relative;
+      border: 2px solid transparent;
+      background-clip: padding-box;
+    }
+    .holographic-border::before {
+      content: '';
+      position: absolute;
+      top: 0; right: 0; bottom: 0; left: 0;
+      z-index: -1;
+      margin: -2px;
+      border-radius: inherit;
+      background: linear-gradient(120deg, rgba(232, 62, 90, 0.5), rgba(232, 62, 90, 0.1), rgba(232, 62, 90, 0.5));
+    }
+    .glassmorphism {
+        background: rgba(26, 26, 26, 0.5);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .pink-light-streak {
+        position: absolute;
+        width: 300px;
+        height: 100%;
+        background: radial-gradient(ellipse at center, rgba(232, 62, 90, 0.25) 0%, rgba(232, 62, 90, 0) 70%);
+        animation: move-streak 15s linear infinite;
+        opacity: 0.8;
+    }
+    @keyframes move-streak {
+        0% { transform: translateX(-50%) translateY(-50%) rotate(0deg); }
+        100% { transform: translateX(50%) translateY(50%) rotate(360deg); }
+    }
+  </style>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#E83E5A',
+            secondary: '#FFFFFF',
+            background: '#0A0A0A',
+            accent: '#1A1A1A',
+            'hover-primary': '#F05570',
+            'text-primary': '#FFFFFF',
+            'text-secondary': '#CCCCCC',
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Space Grotesk', 'monospace'],
+            cta: ['Poppins', 'sans-serif'],
+          },
+          boxShadow: {
+            'neon-pink': '0 0 5px #E83E5A, 0 0 10px #E83E5A, 0 0 20px #E83E5A',
+            'neon-pink-soft': '0 0 15px rgba(232, 62, 90, 0.6)',
+            'neon-pink-hover': '0 0 8px #F05570, 0 0 15px #F05570, 0 0 25px #F05570',
+          },
+          animation: {
+            'fade-in-up': 'fade-in-up 1s ease-out forwards',
+            'pulse-glow': 'pulse-glow 2s infinite ease-in-out',
+          },
+          keyframes: {
+            'fade-in-up': {
+              '0%': { opacity: '0', transform: 'translateY(20px)' },
+              '100%': { opacity: '1', transform: 'translateY(0)' },
+            },
+            'pulse-glow': {
+              '0%, 100%': { boxShadow: '0 0 15px rgba(232, 62, 90, 0.6)' },
+              '50%': { boxShadow: '0 0 25px rgba(232, 62, 90, 0.9)' },
+            },
+          }
+        },
+      },
+      plugins: [],
+    }
+  </script>
+<script type="importmap">
+{
+  "imports": {
+    "rxjs": "https://aistudiocdn.com/rxjs@^7.8.2?conditions=es2015",
+    "rxjs/operators": "https://aistudiocdn.com/rxjs@^7.8.2/operators?conditions=es2015",
+    "rxjs/ajax": "https://aistudiocdn.com/rxjs@^7.8.2/ajax?conditions=es2015",
+    "rxjs/webSocket": "https://aistudiocdn.com/rxjs@^7.8.2/webSocket?conditions=es2015",
+    "rxjs/testing": "https://aistudiocdn.com/rxjs@^7.8.2/testing?conditions=es2015",
+    "rxjs/fetch": "https://aistudiocdn.com/rxjs@^7.8.2/fetch?conditions=es2015",
+    "@angular/platform-browser": "https://next.esm.sh/@angular/platform-browser@^20.3.9?external=rxjs",
+    "@angular/compiler": "https://next.esm.sh/@angular/compiler@^20.3.9?external=rxjs",
+    "@angular/common": "https://next.esm.sh/@angular/common@^20.3.9?external=rxjs",
+    "@angular/core": "https://next.esm.sh/@angular/core@^20.3.9?external=rxjs",
+    "@angular/router": "https://next.esm.sh/@angular/router@^20.3.9?external=rxjs",
+    "@angular/core/rxjs-interop": "https://next.esm.sh/@angular/core@^20.3.9/rxjs-interop?external=rxjs"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+<body class="bg-background">
+  <app-root></app-root>
+</body>
+</html>

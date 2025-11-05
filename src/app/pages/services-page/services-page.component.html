@@ -1,0 +1,41 @@
+<div class="pt-24 sm:pt-32">
+  <app-breadcrumb></app-breadcrumb>
+  <section class="relative py-20 flex items-center justify-center text-center overflow-hidden bg-background">
+    <div class="absolute inset-0 z-0 opacity-50">
+      <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(232,62,90,0.3)_0%,_rgba(10,10,10,0)_60%)]"></div>
+    </div>
+    <div class="relative z-20 container mx-auto px-6 animate-fade-in-up">
+      <h1 class="font-display text-4xl md:text-6xl font-bold text-white leading-tight">
+        Performans Odaklı <span class="text-primary">Hizmetlerimiz</span>
+      </h1>
+      <p class="mt-6 text-lg md:text-xl text-text-secondary max-w-3xl mx-auto">
+        Markanızın potansiyelini ortaya çıkarmak için en gelişmiş teknolojileri ve stratejileri bir araya getiriyoruz.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-20 sm:py-24 bg-accent">
+    <div class="container mx-auto px-6">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        @for (service of services(); track service.title) {
+          <div class="holographic-border rounded-xl group overflow-hidden bg-background/50 transition-all duration-300 hover:shadow-neon-pink-soft hover:-translate-y-2 flex flex-col">
+            <div class="p-8 flex-grow">
+              <h3 class="font-display text-2xl font-bold text-white">{{ service.title }}</h3>
+              <p class="mt-4 text-text-secondary leading-relaxed">{{ service.description }}</p>
+              <div class="mt-6 flex flex-wrap gap-2">
+                @for (keyword of service.keywords; track keyword) {
+                  <span class="text-xs font-mono bg-primary/20 text-primary px-2 py-1 rounded">{{ keyword }}</span>
+                }
+              </div>
+            </div>
+            <div class="p-8 pt-0 mt-auto">
+              <a [routerLink]="service.ctaLink" class="inline-block w-full text-center bg-primary text-white font-cta font-medium py-3 px-6 rounded-lg transition-all duration-300 hover:bg-hover-primary hover:shadow-neon-pink-soft">
+                {{ service.ctaText }}
+              </a>
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+  </section>
+</div>

@@ -1,0 +1,47 @@
+<section class="relative min-h-screen flex items-center justify-center text-center overflow-hidden bg-background">
+  <!-- Background Gradients -->
+  @for (slide of slides(); track $index) {
+    <div 
+      class="absolute inset-0 z-0 bg-gradient-to-br transition-opacity duration-[2000ms] ease-in-out"
+      [class.opacity-100]="currentIndex() === $index"
+      [class.opacity-0]="currentIndex() !== $index"
+      [class]="slide.gradient">
+    </div>
+  }
+  
+  <!-- Existing Futuristic Overlays -->
+  <div class="absolute inset-0 z-10 opacity-50">
+     <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(232,62,90,0.3)_0%,_rgba(10,10,10,0)_60%)]"></div>
+     <div class="absolute top-1/2 left-1/2 w-[200%] h-[200%] -translate-x-1/2 -translate-y-1/2 bg-[radial-gradient(circle_at_center,rgba(232,62,90,0.2)_0%,_transparent_40%,_transparent_100%)] animate-[spin_20s_linear_infinite]"></div>
+     <div class="absolute top-1/2 left-1/2 w-[150%] h-[150%] -translate-x-1/2 -translate-y-1/2 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.1)_0%,_transparent_50%,_transparent_100%)] animate-[spin_30s_linear_infinite_reverse]"></div>
+  </div>
+
+  <div class="relative z-20 container mx-auto px-6">
+    <!-- Slider Text Container -->
+    <div class="relative h-48 md:h-56 flex items-center justify-center">
+      @for (slide of slides(); track $index) {
+        <div 
+          class="absolute inset-0 flex flex-col justify-center items-center transition-opacity duration-1000 ease-in-out"
+          [class.opacity-100]="currentIndex() === $index"
+          [class.opacity-0]="currentIndex() !== $index"
+          [class.animate-fade-in-up]="currentIndex() === $index">
+          <h1 
+            class="font-display text-4xl md:text-6xl lg:text-7xl font-bold text-shadow text-white leading-tight" 
+            style="line-height: 1.2;"
+            [innerHTML]="slide.title">
+          </h1>
+          <p 
+            class="mt-6 text-lg md:text-xl text-text-secondary max-w-3xl mx-auto" 
+            style="line-height: 1.7; opacity: 0.85;">
+            {{ slide.subtitle }}
+          </p>
+        </div>
+      }
+    </div>
+
+    <!-- Static CTA Button -->
+    <a routerLink="/hizmetler" class="mt-10 inline-block bg-primary text-white font-cta font-medium py-4 px-10 rounded-lg text-lg transition-all duration-300 hover:bg-hover-primary hover:shadow-neon-pink-hover transform hover:-translate-y-1 animate-pulse-glow">
+      Hemen Keşfet
+    </a>
+  </div>
+</section>
